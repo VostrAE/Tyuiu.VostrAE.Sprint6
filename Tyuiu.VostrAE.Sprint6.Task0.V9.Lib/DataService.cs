@@ -5,7 +5,7 @@ namespace Tyuiu.VostrAE.Sprint6.Task0.V9.Lib
     {
         public double Calculate(int x)
         {
-            double res = (4 -(Math.Pow((double)x,3))/ Math.Pow((double)x,2));
+            double res = (4 -Math.Pow(x,3))/ Math.Pow(x,2);
             return Math.Round(res,3);
         }
     }
