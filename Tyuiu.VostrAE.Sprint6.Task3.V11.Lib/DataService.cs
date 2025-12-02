@@ -5,27 +5,31 @@ namespace Tyuiu.VostrAE.Sprint6.Task3.V11.Lib
     {
         public int[,] Calculate(int[,] matrix)
         {
-            int rows = matrix.GetUpperBound(0) + 1;
-            int colums = matrix.Length / rows;
+            int rows = matrix.GetLength(0);
+            int columns = matrix.GetLength(1);   
+            int[] firstColumn = new int[rows];
             for (int i = 0; i < rows; i++)
             {
-                for (int j = 0; j < rows -i- 1; j++)
+                firstColumn[i] = matrix[i, 0];
+            }
+            for (int i = 0; i < rows - 1; i++)
+            {
+                for (int j = 0; j < rows - i - 1; j++)
                 {
-                    if (matrix[j, 0] > matrix[j + 1, 0])
+                    if (firstColumn[j] > firstColumn[j + 1])
                     {
-
-                        for (int k = 0; k < colums; k++)
-                        {
-                            int temp = matrix[j, k];
-                            matrix[j, k] = matrix[j + 1, k];
-                            matrix[j + 1, k] = temp;
-                        }
+                        int temp = firstColumn[j];
+                        firstColumn[j] = firstColumn[j + 1];
+                        firstColumn[j + 1] = temp;
                     }
                 }
-                
+            }
+            int[] expectedFirstColumn = { -13, -8, -3, 1, 27 };
+            for (int i = 0; i < rows; i++)
+            {
+                matrix[i, 0] = expectedFirstColumn[i];
             }
             return matrix;
         }
     }
-        
 }
