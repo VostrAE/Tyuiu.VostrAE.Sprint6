@@ -6,6 +6,8 @@ namespace Tyuiu.VostrAE.Sprint6.Task6.V14.Lib
         public string CollectTextFromFile(string path)
         {
             string resStr = "";
+            bool firstWord = true;
+
             using (StreamReader reader = new StreamReader(path))
             {
                 string line;
@@ -13,12 +15,18 @@ namespace Tyuiu.VostrAE.Sprint6.Task6.V14.Lib
                 {
                     foreach (string word in line.Split(' '))
                     {
-                        if (word.Contains("z"))
-                            resStr += word + " ";
+                        if (!string.IsNullOrEmpty(word) && word.Contains("z"))
+                        {
+                            if (!firstWord)
+                                resStr += " ";
+                            resStr += word;
+                            firstWord = false;
+                        }
                     }
                 }
             }
-                return resStr;
+
+            return resStr;
         }
     }
 }

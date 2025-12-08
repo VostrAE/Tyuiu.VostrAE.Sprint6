@@ -127,7 +127,7 @@
             // 
             // textBoxInfo
             // 
-            textBoxInfo.Location = new Point(3, 34);
+            textBoxInfo.Location = new Point(0, 34);
             textBoxInfo.Multiline = true;
             textBoxInfo.Name = "textBoxInfo";
             textBoxInfo.ReadOnly = true;
