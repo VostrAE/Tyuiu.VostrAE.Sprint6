@@ -13,7 +13,7 @@ namespace Tyuiu.VostrAE.Sprint6.Task6.V14.Lib
                 {
                     foreach (string word in line.Split(' '))
                     {
-                        if (word.Contains("z") || word.Contains("Z"))
+                        if (word.Contains("z"))
                             resStr += word + " ";
                     }
                 }
