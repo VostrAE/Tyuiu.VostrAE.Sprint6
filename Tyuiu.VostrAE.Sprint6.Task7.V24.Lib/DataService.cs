@@ -1,9 +1,9 @@
 ﻿using tyuiu.cources.programming.interfaces.Sprint6;
+using System.IO;
 namespace Tyuiu.VostrAE.Sprint6.Task7.V24.Lib
 {
     public class DataService : ISprint6Task7V24
     {
-        public int len = 0;
         public int[,] GetMatrix(string path)
         {
             string fileData = File.ReadAllText(path);
@@ -21,9 +21,9 @@ namespace Tyuiu.VostrAE.Sprint6.Task7.V24.Lib
                 for (int j = 0; j < columns; j++)
                 {
                     arrayValues[i, j] = Convert.ToInt32(line_r[j]);
-                    if (arrayValues[i, 1] %2== 0)
+                    if (arrayValues[1, j] % 2== 0 && arrayValues[1, j] != 0)
                     {
-                        arrayValues[i, 1] = 1;
+                        arrayValues[1, j] = 1;
                     }
                 }
             }

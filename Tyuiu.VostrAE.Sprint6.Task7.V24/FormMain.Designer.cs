@@ -40,13 +40,12 @@
             panelInfo = new Panel();
             groupBoxInfo_AE = new GroupBox();
             labelInfo_AE = new Label();
-            splitter = new Splitter();
             groupBoxInput_AE = new GroupBox();
             dataGridViewIn_AE = new DataGridView();
-            panelIN_AE = new Panel();
             openFileDialogTask = new OpenFileDialog();
             toolTipButton = new ToolTip(components);
             saveFileDialogMatrix = new SaveFileDialog();
+            splitContainerMtrx_AE = new SplitContainer();
             panelButton_AE.SuspendLayout();
             groupBoxOutput_AE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewOut_AE).BeginInit();
@@ -54,7 +53,10 @@
             groupBoxInfo_AE.SuspendLayout();
             groupBoxInput_AE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewIn_AE).BeginInit();
-            panelIN_AE.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainerMtrx_AE).BeginInit();
+            splitContainerMtrx_AE.Panel1.SuspendLayout();
+            splitContainerMtrx_AE.Panel2.SuspendLayout();
+            splitContainerMtrx_AE.SuspendLayout();
             SuspendLayout();
             // 
             // panelButton_AE
@@ -66,7 +68,7 @@
             panelButton_AE.Dock = DockStyle.Top;
             panelButton_AE.Location = new Point(0, 0);
             panelButton_AE.Name = "panelButton_AE";
-            panelButton_AE.Size = new Size(1379, 91);
+            panelButton_AE.Size = new Size(1382, 91);
             panelButton_AE.TabIndex = 0;
             panelButton_AE.UseWaitCursor = true;
             // 
@@ -88,7 +90,7 @@
             // 
             buttonInfo_AE.FlatStyle = FlatStyle.Flat;
             buttonInfo_AE.Image = (Image)resources.GetObject("buttonInfo_AE.Image");
-            buttonInfo_AE.Location = new Point(1243, 5);
+            buttonInfo_AE.Location = new Point(1256, 5);
             buttonInfo_AE.Name = "buttonInfo_AE";
             buttonInfo_AE.Size = new Size(122, 80);
             buttonInfo_AE.TabIndex = 4;
@@ -127,9 +129,10 @@
             // groupBoxOutput_AE
             // 
             groupBoxOutput_AE.Controls.Add(dataGridViewOut_AE);
-            groupBoxOutput_AE.Location = new Point(695, 191);
+            groupBoxOutput_AE.FlatStyle = FlatStyle.Flat;
+            groupBoxOutput_AE.Location = new Point(6, 188);
             groupBoxOutput_AE.Name = "groupBoxOutput_AE";
-            groupBoxOutput_AE.Size = new Size(678, 552);
+            groupBoxOutput_AE.Size = new Size(675, 553);
             groupBoxOutput_AE.TabIndex = 3;
             groupBoxOutput_AE.TabStop = false;
             groupBoxOutput_AE.Text = "Вывод:";
@@ -137,20 +140,23 @@
             // 
             // dataGridViewOut_AE
             // 
+            dataGridViewOut_AE.AllowUserToAddRows = false;
+            dataGridViewOut_AE.AllowUserToDeleteRows = false;
             dataGridViewOut_AE.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewOut_AE.Location = new Point(7, 26);
+            dataGridViewOut_AE.ColumnHeadersVisible = false;
+            dataGridViewOut_AE.Location = new Point(6, 26);
             dataGridViewOut_AE.Name = "dataGridViewOut_AE";
             dataGridViewOut_AE.ReadOnly = true;
+            dataGridViewOut_AE.RowHeadersVisible = false;
             dataGridViewOut_AE.RowHeadersWidth = 51;
             dataGridViewOut_AE.ScrollBars = ScrollBars.Vertical;
-            dataGridViewOut_AE.Size = new Size(664, 517);
+            dataGridViewOut_AE.Size = new Size(663, 521);
             dataGridViewOut_AE.TabIndex = 1;
             dataGridViewOut_AE.UseWaitCursor = true;
             // 
             // panelInfo
             // 
             panelInfo.Controls.Add(groupBoxInfo_AE);
-            panelInfo.Controls.Add(splitter);
             panelInfo.Location = new Point(1, 91);
             panelInfo.Name = "panelInfo";
             panelInfo.Size = new Size(1377, 91);
@@ -159,9 +165,10 @@
             // groupBoxInfo_AE
             // 
             groupBoxInfo_AE.Controls.Add(labelInfo_AE);
-            groupBoxInfo_AE.Location = new Point(11, 6);
+            groupBoxInfo_AE.Dock = DockStyle.Fill;
+            groupBoxInfo_AE.Location = new Point(0, 0);
             groupBoxInfo_AE.Name = "groupBoxInfo_AE";
-            groupBoxInfo_AE.Size = new Size(1354, 79);
+            groupBoxInfo_AE.Size = new Size(1377, 91);
             groupBoxInfo_AE.TabIndex = 2;
             groupBoxInfo_AE.TabStop = false;
             groupBoxInfo_AE.Text = "Условие:";
@@ -175,20 +182,12 @@
             labelInfo_AE.TabIndex = 0;
             labelInfo_AE.Text = resources.GetString("labelInfo_AE.Text");
             // 
-            // splitter
-            // 
-            splitter.Location = new Point(0, 0);
-            splitter.Name = "splitter";
-            splitter.Size = new Size(1377, 91);
-            splitter.TabIndex = 0;
-            splitter.TabStop = false;
-            // 
             // groupBoxInput_AE
             // 
             groupBoxInput_AE.Controls.Add(dataGridViewIn_AE);
-            groupBoxInput_AE.Location = new Point(11, 9);
+            groupBoxInput_AE.Location = new Point(11, 188);
             groupBoxInput_AE.Name = "groupBoxInput_AE";
-            groupBoxInput_AE.Size = new Size(678, 552);
+            groupBoxInput_AE.Size = new Size(673, 553);
             groupBoxInput_AE.TabIndex = 2;
             groupBoxInput_AE.TabStop = false;
             groupBoxInput_AE.Text = "Ввод:";
@@ -196,35 +195,45 @@
             // dataGridViewIn_AE
             // 
             dataGridViewIn_AE.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewIn_AE.ColumnHeadersVisible = false;
             dataGridViewIn_AE.Location = new Point(8, 26);
             dataGridViewIn_AE.Name = "dataGridViewIn_AE";
             dataGridViewIn_AE.ReadOnly = true;
+            dataGridViewIn_AE.RowHeadersVisible = false;
             dataGridViewIn_AE.RowHeadersWidth = 51;
             dataGridViewIn_AE.ScrollBars = ScrollBars.Vertical;
-            dataGridViewIn_AE.Size = new Size(664, 517);
+            dataGridViewIn_AE.Size = new Size(659, 517);
             dataGridViewIn_AE.TabIndex = 0;
-            // 
-            // panelIN_AE
-            // 
-            panelIN_AE.Controls.Add(groupBoxInput_AE);
-            panelIN_AE.Location = new Point(0, 182);
-            panelIN_AE.Name = "panelIN_AE";
-            panelIN_AE.Size = new Size(694, 561);
-            panelIN_AE.TabIndex = 2;
             // 
             // openFileDialogTask
             // 
             openFileDialogTask.FileName = "openFileDialogTask";
             // 
+            // splitContainerMtrx_AE
+            // 
+            splitContainerMtrx_AE.Dock = DockStyle.Bottom;
+            splitContainerMtrx_AE.Location = new Point(0, 0);
+            splitContainerMtrx_AE.Name = "splitContainerMtrx_AE";
+            // 
+            // splitContainerMtrx_AE.Panel1
+            // 
+            splitContainerMtrx_AE.Panel1.Controls.Add(groupBoxInput_AE);
+            // 
+            // splitContainerMtrx_AE.Panel2
+            // 
+            splitContainerMtrx_AE.Panel2.Controls.Add(groupBoxOutput_AE);
+            splitContainerMtrx_AE.Size = new Size(1382, 752);
+            splitContainerMtrx_AE.SplitterDistance = 693;
+            splitContainerMtrx_AE.TabIndex = 2;
+            // 
             // FormMain
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1379, 743);
-            Controls.Add(groupBoxOutput_AE);
-            Controls.Add(panelIN_AE);
+            ClientSize = new Size(1382, 752);
             Controls.Add(panelInfo);
             Controls.Add(panelButton_AE);
+            Controls.Add(splitContainerMtrx_AE);
             Name = "FormMain";
             Text = "Спринт 6 | Таск 7 | Вариант 24 | Вострых А.Е.";
             panelButton_AE.ResumeLayout(false);
@@ -235,7 +244,10 @@
             groupBoxInfo_AE.PerformLayout();
             groupBoxInput_AE.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewIn_AE).EndInit();
-            panelIN_AE.ResumeLayout(false);
+            splitContainerMtrx_AE.Panel1.ResumeLayout(false);
+            splitContainerMtrx_AE.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainerMtrx_AE).EndInit();
+            splitContainerMtrx_AE.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -244,7 +256,6 @@
         private Panel panelButton_AE;
         private Panel panelInfo;
         private GroupBox groupBoxInfo_AE;
-        private Splitter splitter;
         private Label labelInfo_AE;
         private GroupBox groupBoxInput_AE;
         private DataGridView dataGridViewIn_AE;
@@ -253,10 +264,10 @@
         private Button buttonDone_AE;
         private Button buttonOpen_AE;
         private DataGridView dataGridViewOut_AE;
-        private Panel panelIN_AE;
         private Button buttonSave_AE;
         private OpenFileDialog openFileDialogTask;
         private ToolTip toolTipButton;
         private SaveFileDialog saveFileDialogMatrix;
+        private SplitContainer splitContainerMtrx_AE;
     }
 }
