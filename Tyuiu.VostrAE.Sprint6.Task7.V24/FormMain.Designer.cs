@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             panelButton_AE = new Panel();
-            groupBoxOutput_AE = new GroupBox();
-            dataGridViewOut_AE = new DataGridView();
+            buttonSave_AE = new Button();
             buttonInfo_AE = new Button();
             buttonDone_AE = new Button();
             buttonOpen_AE = new Button();
+            groupBoxOutput_AE = new GroupBox();
+            dataGridViewOut_AE = new DataGridView();
             panelInfo = new Panel();
             groupBoxInfo_AE = new GroupBox();
             labelInfo_AE = new Label();
@@ -42,7 +44,9 @@
             groupBoxInput_AE = new GroupBox();
             dataGridViewIn_AE = new DataGridView();
             panelIN_AE = new Panel();
-            buttonSave_AE = new Button();
+            openFileDialogTask = new OpenFileDialog();
+            toolTipButton = new ToolTip(components);
+            saveFileDialogMatrix = new SaveFileDialog();
             panelButton_AE.SuspendLayout();
             groupBoxOutput_AE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewOut_AE).BeginInit();
@@ -66,6 +70,60 @@
             panelButton_AE.TabIndex = 0;
             panelButton_AE.UseWaitCursor = true;
             // 
+            // buttonSave_AE
+            // 
+            buttonSave_AE.Enabled = false;
+            buttonSave_AE.FlatStyle = FlatStyle.Flat;
+            buttonSave_AE.Image = (Image)resources.GetObject("buttonSave_AE.Image");
+            buttonSave_AE.Location = new Point(267, 5);
+            buttonSave_AE.Name = "buttonSave_AE";
+            buttonSave_AE.Size = new Size(122, 80);
+            buttonSave_AE.TabIndex = 5;
+            toolTipButton.SetToolTip(buttonSave_AE, "Сохранить\r\nСохранить данные в файл в формате CSV");
+            buttonSave_AE.UseVisualStyleBackColor = true;
+            buttonSave_AE.UseWaitCursor = true;
+            buttonSave_AE.Click += buttonSave_AE_Click;
+            // 
+            // buttonInfo_AE
+            // 
+            buttonInfo_AE.FlatStyle = FlatStyle.Flat;
+            buttonInfo_AE.Image = (Image)resources.GetObject("buttonInfo_AE.Image");
+            buttonInfo_AE.Location = new Point(1243, 5);
+            buttonInfo_AE.Name = "buttonInfo_AE";
+            buttonInfo_AE.Size = new Size(122, 80);
+            buttonInfo_AE.TabIndex = 4;
+            toolTipButton.SetToolTip(buttonInfo_AE, "Справка\r\nСведение о программе");
+            buttonInfo_AE.UseVisualStyleBackColor = true;
+            buttonInfo_AE.UseWaitCursor = true;
+            buttonInfo_AE.Click += buttonInfo_AE_Click;
+            // 
+            // buttonDone_AE
+            // 
+            buttonDone_AE.Enabled = false;
+            buttonDone_AE.FlatStyle = FlatStyle.Flat;
+            buttonDone_AE.Image = (Image)resources.GetObject("buttonDone_AE.Image");
+            buttonDone_AE.Location = new Point(139, 5);
+            buttonDone_AE.Name = "buttonDone_AE";
+            buttonDone_AE.Size = new Size(122, 80);
+            buttonDone_AE.TabIndex = 3;
+            toolTipButton.SetToolTip(buttonDone_AE, "Выполнить\r\nВыполнить обработку данных");
+            buttonDone_AE.UseVisualStyleBackColor = true;
+            buttonDone_AE.UseWaitCursor = true;
+            buttonDone_AE.Click += buttonDone_AE_Click;
+            // 
+            // buttonOpen_AE
+            // 
+            buttonOpen_AE.FlatStyle = FlatStyle.Flat;
+            buttonOpen_AE.Image = (Image)resources.GetObject("buttonOpen_AE.Image");
+            buttonOpen_AE.Location = new Point(11, 5);
+            buttonOpen_AE.Name = "buttonOpen_AE";
+            buttonOpen_AE.Size = new Size(122, 80);
+            buttonOpen_AE.TabIndex = 2;
+            toolTipButton.SetToolTip(buttonOpen_AE, "Открыть файл\r\nОткрыть файл для обработки данных в формате CSV\r\n");
+            buttonOpen_AE.UseVisualStyleBackColor = true;
+            buttonOpen_AE.UseWaitCursor = true;
+            buttonOpen_AE.Click += buttonOpen_AE_Click;
+            // 
             // groupBoxOutput_AE
             // 
             groupBoxOutput_AE.Controls.Add(dataGridViewOut_AE);
@@ -88,40 +146,6 @@
             dataGridViewOut_AE.Size = new Size(664, 517);
             dataGridViewOut_AE.TabIndex = 1;
             dataGridViewOut_AE.UseWaitCursor = true;
-            // 
-            // buttonInfo_AE
-            // 
-            buttonInfo_AE.FlatStyle = FlatStyle.Flat;
-            buttonInfo_AE.Image = (Image)resources.GetObject("buttonInfo_AE.Image");
-            buttonInfo_AE.Location = new Point(1243, 5);
-            buttonInfo_AE.Name = "buttonInfo_AE";
-            buttonInfo_AE.Size = new Size(122, 80);
-            buttonInfo_AE.TabIndex = 4;
-            buttonInfo_AE.UseVisualStyleBackColor = true;
-            buttonInfo_AE.UseWaitCursor = true;
-            // 
-            // buttonDone_AE
-            // 
-            buttonDone_AE.Enabled = false;
-            buttonDone_AE.FlatStyle = FlatStyle.Flat;
-            buttonDone_AE.Image = (Image)resources.GetObject("buttonDone_AE.Image");
-            buttonDone_AE.Location = new Point(139, 5);
-            buttonDone_AE.Name = "buttonDone_AE";
-            buttonDone_AE.Size = new Size(122, 80);
-            buttonDone_AE.TabIndex = 3;
-            buttonDone_AE.UseVisualStyleBackColor = true;
-            buttonDone_AE.UseWaitCursor = true;
-            // 
-            // buttonOpen_AE
-            // 
-            buttonOpen_AE.FlatStyle = FlatStyle.Flat;
-            buttonOpen_AE.Image = (Image)resources.GetObject("buttonOpen_AE.Image");
-            buttonOpen_AE.Location = new Point(11, 5);
-            buttonOpen_AE.Name = "buttonOpen_AE";
-            buttonOpen_AE.Size = new Size(122, 80);
-            buttonOpen_AE.TabIndex = 2;
-            buttonOpen_AE.UseVisualStyleBackColor = true;
-            buttonOpen_AE.UseWaitCursor = true;
             // 
             // panelInfo
             // 
@@ -188,17 +212,9 @@
             panelIN_AE.Size = new Size(694, 561);
             panelIN_AE.TabIndex = 2;
             // 
-            // buttonSave_AE
+            // openFileDialogTask
             // 
-            buttonSave_AE.Enabled = false;
-            buttonSave_AE.FlatStyle = FlatStyle.Flat;
-            buttonSave_AE.Image = (Image)resources.GetObject("buttonSave_AE.Image");
-            buttonSave_AE.Location = new Point(267, 5);
-            buttonSave_AE.Name = "buttonSave_AE";
-            buttonSave_AE.Size = new Size(122, 80);
-            buttonSave_AE.TabIndex = 5;
-            buttonSave_AE.UseVisualStyleBackColor = true;
-            buttonSave_AE.UseWaitCursor = true;
+            openFileDialogTask.FileName = "openFileDialogTask";
             // 
             // FormMain
             // 
@@ -239,5 +255,8 @@
         private DataGridView dataGridViewOut_AE;
         private Panel panelIN_AE;
         private Button buttonSave_AE;
+        private OpenFileDialog openFileDialogTask;
+        private ToolTip toolTipButton;
+        private SaveFileDialog saveFileDialogMatrix;
     }
 }
